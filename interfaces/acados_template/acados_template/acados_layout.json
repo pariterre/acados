@@ -5,6 +5,9 @@
     "acados_lib_path": [
         "str"
     ],
+    "additional_lib": [
+        "str"
+    ],
     "con_h_e_name": [
         "NoneType"
     ],

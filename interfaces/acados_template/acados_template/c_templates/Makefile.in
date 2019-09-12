@@ -110,7 +110,7 @@ example:
 	-L $(LIB_PATH)/external/blasfeo \
 	-L $(LIB_PATH)/external/hpipm  \
 	-L $(LIB_PATH)/external/qpoases/lib \
-	-lacados -lhpipm -lblasfeo -lqpOASES_e -lm \
+	{% if ocp.acados_lib_path != [] %}-lacados -lhpipm -lblasfeo -lqpOASES_e -lm -l{{ ocp.additional_lib }} \{% else %}-lacados -lhpipm -lblasfeo -lqpOASES_e -lm \{% endif %}
 	-I $(INCLUDE_PATH)/blasfeo/include/ \
 	-I $(INCLUDE_PATH)/hpipm/include/ \
 	-I $(INCLUDE_PATH) \
@@ -123,8 +123,8 @@ shared_lib: casadi_fun solver sim_solver
 	-L $(LIB_PATH)/external/blasfeo \
 	-L $(LIB_PATH)/external/hpipm  \
 	-L $(LIB_PATH)/external/qpoases/lib \
-	-lacados -lhpipm -lblasfeo -lqpOASES_e -lm \
-
+	{% if ocp.acados_lib_path != [] %}-lacados -lhpipm -lblasfeo -lqpOASES_e -lm -l{{ ocp.additional_lib }} \{% else %}-lacados -lhpipm -lblasfeo -lqpOASES_e -lm \{% endif %}
+  
 clean:
 	rm -f *.o
 	rm -f *.so

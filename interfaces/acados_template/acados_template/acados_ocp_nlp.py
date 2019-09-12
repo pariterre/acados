@@ -1058,8 +1058,9 @@ class acados_ocp_nlp:
         self.con_h_name  = None 
         self.con_h_e_name = None 
         # self.constants = {}
-        self.acados_include_path = []
-        self.acados_lib_path = []
+        self.acados_include_path = ''
+        self.acados_lib_path = ''
+        self.additional_lib = ''
 
     def set(self, attr, value):
         # tokenize string 
